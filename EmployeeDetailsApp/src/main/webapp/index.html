@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee Details</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./styles.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#employeeForm').submit(function(event) {
+                event.preventDefault();
+                var empId = $('#emp_id').val();
+                var firstName = $('#firstName').val();
+                var lastName = $('#lastName').val();
+                var email = $('#email').val();
+                var phone = $('#phone').val();
+                var hireDate = $('#hireDate').val();
+                var jobTitle = $('#jobTitle').val();
+                var department = $('#department').val();
+                var salary = $('#salary').val();
+
+                if (!emp_id || !firstName || !lastName || !email || !phone || !hireDate || !jobTitle || !department || !salary) {
+                    alert('Please fill in all fields');
+                    return false;
+                }
+
+                if (!validateEmail(email)) {
+                    alert('Invalid email address');
+                    return false;
+                }
+
+                if (!validatePhone(phone)) {
+                    alert('Invalid phone number');
+                    return false;
+                }
+
+                if (!validateSalary(salary)) {
+                    alert('Invalid salary');
+                    return false;
+                }
+
+                $.ajax({
+                    type: 'POST',
+                    url: 'EmployeeServlet',  // Ensure this URL matches your server configuration
+                    data: {
+                        action: 'insert',
+                        emp_id: emp_id,
+                        firstName: firstName,
+                        lastName: lastName,
+                        email: email,
+                        phone: phone,
+                        hireDate: hireDate,
+                        jobTitle: jobTitle,
+                        department: department,
+                        salary: salary
+                    },
+                    success: function(data) {
+                        alert('Employee added successfully');
+                    },
+                    error: function(xhr, status, error) {
+                        alert('Error adding employee');
+                    }
+                });
+            });
+        });
+
+        function validateEmail(email) {
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        function validatePhone(phone) {
+            var phoneRegex = /^\d{10}$/;
+            return phoneRegex.test(phone);
+        }
+
+        function validateSalary(salary) {
+            var salaryRegex = /^\d+(\.\d{1,2})?$/;
+            return salaryRegex.test(salary);
+        }
+    </script>
+</head>
+<body>
+    <h1>Employee Details Form</h1>
+    <form id="employeeForm">
+        <div class="form-group">
+            <label for="emp_id">Employee ID:</label>
+            <input type="text" id="emp_id" name="emp_id" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" name="firstName" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lastName" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="phone">Phone:</label>
+            <input type="text" id="phone" name="phone" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="hireDate">Hire Date:</label>
+            <input type="date" id="hireDate" name="hireDate" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="jobTitle">Job Title:</label>
+            <input type="text" id="jobTitle" name="jobTitle" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="department">Department:</label>
+            <input type="text" id="department" name="department" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="salary">Salary:</label>
+            <input type="number" id="salary" name="salary" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</body>
+</html>
