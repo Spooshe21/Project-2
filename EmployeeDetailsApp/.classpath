@@ -18,8 +18,6 @@
 	<classpathentry exported="true" kind="lib" path="C:/Users/DELL/Downloads/jackson-annotations-2.15.2.jar"/>
 	<classpathentry exported="true" kind="lib" path="C:/Users/DELL/Downloads/jackson-core-2.15.2.jar"/>
 	<classpathentry exported="true" kind="lib" path="C:/Users/DELL/Downloads/jackson-databind-2.15.2.jar"/>
-	<classpathentry exported="true" kind="lib" path="C:/Users/DELL/Downloads/jakarta.servlet.jsp.jstl-3.0.1.jar"/>
-	<classpathentry exported="true" kind="lib" path="C:/Users/DELL/Downloads/jakarta.servlet-api-6.0.0.jar"/>
 	<classpathentry exported="true" kind="lib" path="C:/Users/DELL/Downloads/commons-fileupload-1.5.jar"/>
 	<classpathentry exported="true" kind="lib" path="C:/Users/DELL/Downloads/postgresql-42.7.3 (1).jar"/>
 	<classpathentry exported="true" kind="lib" path="C:/Users/DELL/Downloads/poi-5.2.3 (1).jar"/>
@@ -33,5 +31,14 @@
 	<classpathentry kind="lib" path="C:/Users/DELL/Downloads/jasper-compiler-5.5.23.jar"/>
 	<classpathentry kind="lib" path="C:/Users/DELL/Downloads/jakarta.jakartaee-api-10.0.0.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v10.1.25"/>
+	<classpathentry kind="lib" path="C:/Users/DELL/Downloads/taglibs-standard-compat-1.2.5 (2).jar"/>
+	<classpathentry kind="lib" path="C:/Users/DELL/Downloads/taglibs-standard-jstlel-1.2.5 (2).jar"/>
+	<classpathentry kind="lib" path="C:/Users/DELL/Downloads/taglibs-standard-spec-1.2.5 (2).jar"/>
+	<classpathentry kind="lib" path="C:/Users/DELL/Downloads/taglibs-standard-impl-1.2.5 (5).jar"/>
+	<classpathentry kind="lib" path="C:/Users/DELL/Downloads/jakarta.servlet.jsp.jstl-api-3.0.0 (1).jar"/>
+	<classpathentry kind="lib" path="C:/Users/DELL/Downloads/jakarta.servlet.jsp.jstl-3.0.1 (1).jar"/>
+	<classpathentry kind="lib" path="C:/Users/DELL/Downloads/jakarta.servlet-api-6.0.0 (1).jar"/>
+	<classpathentry kind="lib" path="C:/Users/DELL/Downloads/eclipse-jee-2023-12-R-win32-x86_64/eclipse/plugins/jakarta.xml.bind-api_4.0.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/DELL/Downloads/eclipse-jee-2023-12-R-win32-x86_64/eclipse/plugins/jakarta.activation-api_2.1.3.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
