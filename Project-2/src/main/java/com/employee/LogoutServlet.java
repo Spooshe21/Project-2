@@ -24,17 +24,39 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 
+/**
+ * Servlet implementation class LogoutServlet
+ * 
+ * This servlet handles the user logout process. It invalidates the current user session and redirects
+ * the user to the home page or login page. This ensures that user-specific data is cleared and the user
+ * is no longer authenticated.
+ */
 
 public class LogoutServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
+
+    /**
+     * Handles GET requests for user logout.
+     * 
+     * This method retrieves the current session, if it exists, and invalidates it. After invalidating
+     * the session, it redirects the user to the home page or login page. This process ensures that the
+     * user is logged out and no session data remains.
+     * 
+     * @param request  HttpServletRequest object used to retrieve session information.
+     * @param response HttpServletResponse object used to redirect the user.
+     * @throws ServletException If an error occurs during request processing.
+     * @throws IOException      If an error occurs during response handling.
+     */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // Invalidate the user's session
+        // Retrieve the current session, if it exists
         HttpSession session = request.getSession(false);
+        
+        // Invalidate the session if it is not null
         if (session != null) {
             session.invalidate();
         }
 
-        // Redirect to the home page or login page
+        // Redirect the user to the home page or login page after logout
         response.sendRedirect("index.jsp");
     }
 }

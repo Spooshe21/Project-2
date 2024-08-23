@@ -32,25 +32,37 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 
+//Annotation to enable file upload
 @MultipartConfig
+//Servlet class for handling employee operations
 public class EmployeeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	// Employee service instance
 	private EmployeeService service;
 
+	 // Constructor
 	public EmployeeServlet() {
 		service = new EmployeeService();
 	}
 
+	 // Handle GET requests
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String action = request.getParameter("action");
+		
+
+		 // Handle different actions based on the request parameter
 		if ("add".equals(action)) {
+			// Forward to the add employee page
 			request.getRequestDispatcher("addEmployee.jsp").forward(request, response);
 		} else if ("view".equals(action)) {
+			 // Get all employees and forward to the view employees page
 			List<Employee> employees = service.getAllEmployees();
 			request.setAttribute("employees", employees);
 			request.getRequestDispatcher("viewEmployees.jsp").forward(request, response);
 		} else if ("edit".equals(action)) {
+			 // Handle employee edit action
 			String emp_idParam = request.getParameter("emp_id");
 			if (emp_idParam != null) {
 				try {
@@ -68,6 +80,7 @@ public class EmployeeServlet extends HttpServlet {
 				response.sendRedirect("error.jsp?message=Employee ID is missing");
 			}
 		} else if ("delete".equals(action)) {
+			 // Handle employee delete action
 			String emp_idParam = request.getParameter("emp_id");
 	        if (emp_idParam != null) {
 	            try {
@@ -89,22 +102,30 @@ public class EmployeeServlet extends HttpServlet {
 	            response.sendRedirect("error.jsp?message=Employee ID is missing");
 	        }
 		} else if ("exportToExcel".equals(action)) {
+			   // Export employees to Excel
 			List<Employee> employees = service.getAllEmployees();
 			exportToExcel(employees, response);
 		} else if ("exportToCSV".equals(action)) {
+			// Export employees to CSV
 			List<Employee> employees = service.getAllEmployees();
 			exportToCSV(employees, response);
 		} else if ("importFromExcel".equals(action)) {
+		    // Forward to the import from Excel page
 			request.getRequestDispatcher("importFromExcel.jsp").forward(request, response);
 		} else if ("importFromCSV".equals(action)) {
+			 // Forward to the import from CSV page
 			request.getRequestDispatcher("importFromCSV.jsp").forward(request, response);
 		}
 	}
 
+	// Handle POST requests
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String action = request.getParameter("action");
+		
+		// Handle different actions based on the request parameter
 		if ("add".equals(action)) {
+			// Add a new employee
 			int emp_id = Integer.parseInt(request.getParameter("emp_id"));
 			String name = request.getParameter("name");
 			String email = request.getParameter("email");
@@ -118,6 +139,7 @@ public class EmployeeServlet extends HttpServlet {
 			service.addEmployee(employee);
 			response.sendRedirect("EmployeeServlet?action=view");
 		} else if ("edit".equals(action)) {
+			  // Edit an existing employee
 			int emp_id = Integer.parseInt(request.getParameter("emp_id"));
 			String name = request.getParameter("name");
 			String email = request.getParameter("email");
@@ -130,6 +152,7 @@ public class EmployeeServlet extends HttpServlet {
 			service.updateEmployee(employee);
 			response.sendRedirect("EmployeeServlet?action=view");
 		} else if ("delete".equals(action)) {
+			 // Delete an employee
 			String emp_idParam = request.getParameter("emp_id");
 	        if (emp_idParam != null) {
 	            try {
@@ -138,12 +161,15 @@ public class EmployeeServlet extends HttpServlet {
 	                request.setAttribute("message", "Employee successfully deleted.");
 	                request.getRequestDispatcher("viewEmployees.jsp").forward(request, response);
 	            } catch (NumberFormatException e) {
+	            	 // Handle invalid employee ID
 	                response.sendRedirect("error.jsp?message=Invalid Employee ID");
 	            }
 	        } else {
+	        	// Handle missing employee ID
 	            response.sendRedirect("error.jsp?message=Employee ID is missing");
 	        }
 		}else if ("importFromExcel".equals(action)) {
+			 // Handle file upload and import from Excel
             Part filePart = request.getPart("excelFile"); // Retrieves <input type="file" name="excelFile">
             if (filePart != null && filePart.getSize() > 0) {
                 try (InputStream inputStream = filePart.getInputStream()) {
@@ -161,6 +187,7 @@ public class EmployeeServlet extends HttpServlet {
             request.getRequestDispatcher("viewEmployees.jsp").forward(request, response);
 
         } else if ("importFromCSV".equals(action)) {
+        	// Handle file upload and import from CSV
             Part filePart = request.getPart("csvFile"); // Retrieves <input type="file" name="csvFile">
             if (filePart != null && filePart.getSize() > 0) {
                 try (InputStream inputStream = filePart.getInputStream()) {
@@ -179,6 +206,7 @@ public class EmployeeServlet extends HttpServlet {
         }
     }
 
+	 // Export employees to Excel
 	private void exportToExcel(List<Employee> employees, HttpServletResponse response) throws IOException {
 		// Create a new Excel file
 		HSSFWorkbook workbook = new HSSFWorkbook();
@@ -215,6 +243,7 @@ public class EmployeeServlet extends HttpServlet {
 		workbook.write(response.getOutputStream());
 	}
 
+	 // Export employees to CSV
 	private void exportToCSV(List<Employee> employees, HttpServletResponse response) throws IOException {
 		// Create a CSV file
 		String csv = "emp_id,Name,Email,Address,Phone,Department,Designation,Active\n";

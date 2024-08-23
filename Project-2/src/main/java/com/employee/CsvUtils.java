@@ -22,31 +22,55 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Utility class for handling CSV file operations related to employee data.
+ */
 public class CsvUtils {
+
+    /**
+     * Reads a CSV file from the provided InputStream and converts each row into an Employee object.
+     * 
+     * @param inputStream the InputStream of the CSV file to be read
+     * @return a List of Employee objects parsed from the CSV file
+     * @throws Exception if an error occurs while reading the file or parsing data
+     */
     public static List<Employee> readCsvFile(InputStream inputStream) throws Exception {
+        // List to store employee objects parsed from the CSV file
         List<Employee> employees = new ArrayList<>();
+        
+        // Create a BufferedReader to read the CSV file from the InputStream
         BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
         String line;
 
-        // Skip header row
+        // Skip the header row of the CSV file
         reader.readLine();
         
+        // Read each line of the CSV file
         while ((line = reader.readLine()) != null) {
+            // Split the line by comma to extract values
             String[] values = line.split(","); // Assuming CSV is comma-separated
-            int emp_id = Integer.parseInt(values[0]);
-            String name = values[1];
-            String email = values[2];
-            String address = values[3];
-            String phone = values[4];
-            String department = values[5];
-            String designation = values[6];
-            boolean isActive = Boolean.parseBoolean(values[7]);
             
+            // Parse and assign each value to corresponding fields of Employee
+            int emp_id = Integer.parseInt(values[0]); // Employee ID
+            String name = values[1]; // Employee name
+            String email = values[2]; // Employee email
+            String address = values[3]; // Employee address
+            String phone = values[4]; // Employee phone number
+            String department = values[5]; // Employee department
+            String designation = values[6]; // Employee designation
+            boolean isActive = Boolean.parseBoolean(values[7]); // Employee status
+            
+            // Create an Employee object with the parsed values
             Employee employee = new Employee(emp_id, name, email, address, phone, department, designation, isActive);
+            
+            // Add the Employee object to the list
             employees.add(employee);
         }
         
+        // Close the BufferedReader
         reader.close();
+        
+        // Return the list of Employee objects
         return employees;
     }
 }
