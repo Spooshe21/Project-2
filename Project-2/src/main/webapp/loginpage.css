@@ -1,0 +1,92 @@
+/* loginpage.css */
+
+/* General Styles */
+body {
+    font-family: 'Libre Bodoni', serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('images/login-background.avif'); /* Add your background image here */
+    background-size: cover; /* Cover the entire background */
+    background-position: center; /* Center the background image */
+    color: #333; /* Text color */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100vh; /* Full viewport height */
+}
+
+.container {
+    text-align: center; /* Center align text in the container */
+}
+
+h1 {
+    margin-bottom: 20px; /* Space below the header */
+    color: white; /* Change header color for better contrast */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Shadow for better visibility */
+}
+
+/* Form Styles */
+form {
+    max-width: 400px; /* Limit the width of the form */
+    margin: 0 auto; /* Center the form horizontally */
+    background: rgba(255, 255, 255, 0.8); /* White background with slight transparency */
+    padding: 20px; /* Padding around the form */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    display: flex; /* Use flexbox for alignment */
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center children horizontally */
+}
+
+label {
+    display: block; /* Block display for labels */
+    margin-bottom: 5px; /* Space between label and input */
+    font-weight: bold; /* Bold labels */
+    text-align: left; /* Align text to the left */
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%; /* Full width inputs */
+    padding: 10px; /* Padding inside inputs */
+    margin-bottom: 15px; /* Space between inputs */
+    border: 1px solid #ccc; /* Border for inputs */
+    border-radius: 5px; /* Rounded corners for inputs */
+    font-size: 16px; /* Font size */
+}
+
+/* Submit Button Styles */
+input[type="submit"] {
+    background-color: #333; /* Dark background for the button */
+    color: white; /* White text for the button */
+    border: none; /* Remove border */
+    padding: 10px; /* Padding for the button */
+    border-radius: 5px; /* Rounded corners for the button */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 16px; /* Font size */
+    transition: background-color 0.3s ease; /* Transition for hover effect */
+}
+
+input[type="submit"]:hover {
+    background-color: #555; /* Darker background on hover */
+}
+
+/* Error Message Styles */
+p.error {
+    color: red; /* Red color for error messages */
+    text-align: center; /* Center align error messages */
+}
+
+/* Sign Up Prompt Styles */
+.signup-prompt {
+    margin-top: 20px; /* Space above the prompt */
+    color: white; /* Change color for visibility */
+}
+
+a {
+    color: #ffcc00; /* Bright color for links for better visibility */
+    text-decoration: underline; /* Underline links */
+}
+
+a:hover {
+    color: #ffd700; /* Lighter color on hover */
+}

@@ -1,0 +1,70 @@
+/* DeleteStyles.css */
+
+/* General Styles */
+body {
+    font-family: 'Libre Bodoni', serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('images/delete-employee-background.jpg'); /* Replace with your background image */
+    background-size: cover; /* Cover the entire background */
+    background-position: center; /* Center the background image */
+    color: #333; /* Text color */
+    display: flex; /* Use flexbox to center content */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100vh; /* Full viewport height */
+}
+
+.container {
+    text-align: center; /* Center align text in the container */
+    background: rgba(255, 255, 255, 0.9); /* White background with slight transparency */
+    padding: 20px; /* Padding around the container */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    width: 90%; /* Responsive width */
+    max-width: 500px; /* Limit maximum width */
+}
+
+/* Header Styles */
+h1 {
+    margin-bottom: 20px; /* Space below the header */
+    color: #333; /* Header color */
+}
+
+/* Paragraph Styles */
+p {
+    margin-bottom: 20px; /* Space below the paragraph */
+    font-size: 18px; /* Font size */
+}
+
+/* Button Styles */
+.btn {
+    display: inline-block; /* Inline block for button styling */
+    padding: 10px 20px; /* Padding for buttons */
+    background-color: #333; /* Dark background for buttons */
+    color: white; /* White text for buttons */
+    text-decoration: none; /* Remove underline from links */
+    border-radius: 5px; /* Rounded corners for buttons */
+    transition: background-color 0.3s ease; /* Transition for hover effect */
+    margin: 5px; /* Space between buttons */
+}
+
+.btn:hover {
+    background-color: #555; /* Darker background on hover */
+}
+
+.delete {
+    background-color: #d9534f; /* Red background for delete button */
+}
+
+.delete:hover {
+    background-color: #c9302c; /* Darker red on hover */
+}
+
+.cancel {
+    background-color: #5bc0de; /* Light blue background for cancel button */
+}
+
+.cancel:hover {
+    background-color: #31b0d5; /* Darker blue on hover */
+}

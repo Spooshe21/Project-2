@@ -1,0 +1,101 @@
+@charset "UTF-8";
+
+/* ViewStyles.css */
+
+/* General Styles */
+body {
+    font-family: 'Libre Bodoni', serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('images/view-employees-background.jpg'); /* Replace with your background image */
+    background-size: cover; /* Cover the entire background */
+    background-position: center; /* Center the background image */
+    color: #333; /* Text color */
+    display: flex; /* Use flexbox to center content */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100vh; /* Full viewport height */
+}
+
+.container {
+    text-align: center; /* Center align text in the container */
+    background: rgba(255, 255, 255, 0.9); /* White background with slight transparency */
+    padding: 40px; /* Increased padding around the container */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Enhanced shadow for depth */
+    width: 95%; /* Slightly wider responsive width */
+    max-width: 1200px; /* Increased maximum width */
+    position: relative; /* Position relative for absolute positioning of logout button */
+    overflow: hidden; /* Prevent overflow */
+}
+
+/* Header Styles */
+h1 {
+    margin-bottom: 30px; /* Increased space below the header */
+    color: #333; /* Header color */
+}
+
+/* Table Styles */
+table {
+    width: 100%; /* Full width for the table */
+    border-collapse: collapse; /* Collapse borders */
+    margin-top: 30px; /* Increased space above the table */
+    font-size: 16px; /* Increased font size for table content */
+    overflow-x: auto; /* Allow horizontal scrolling if needed */
+}
+
+th, td {
+    padding: 15px; /* Increased padding for table cells */
+    text-align: left; /* Align text to the left */
+    border-bottom: 1px solid #ccc; /* Bottom border for cells */
+}
+
+th {
+    background-color: #f2f2f2; /* Light gray background for header */
+    font-weight: bold; /* Bold text for headers */
+}
+
+tr:hover {
+    background-color: #f9f9f9; /* Light gray background on row hover */
+}
+
+/* Button Container Styles */
+.button-container {
+    display: flex; /* Use flexbox for button layout */
+    justify-content: center; /* Center buttons */
+    gap: 20px; /* Space between buttons */
+    margin-top: 30px; /* Space above button container */
+}
+
+/* Button Styles */
+.btn {
+    display: inline-block; /* Inline block for button styling */
+    padding: 15px 30px; /* Increased padding for buttons */
+    background-color: #333; /* Dark background for buttons */
+    color: white; /* White text for buttons */
+    text-decoration: none; /* Remove underline from links */
+    border-radius: 5px; /* Rounded corners for buttons */
+    transition: background-color 0.3s ease; /* Transition for hover effect */
+    font-size: 16px; /* Increased font size for buttons */
+}
+
+.btn:hover {
+    background-color: #555; /* Darker background on hover */
+}
+
+/* Logout Button Styles */
+.logout-btn {
+    position: absolute; /* Position the logout button absolutely */
+    top: 20px; /* Distance from the top */
+    right: 20px; /* Distance from the right */
+    padding: 10px 20px; /* Padding for the logout button */
+    background-color: #333; /* Dark background for the logout button */
+    color: white; /* White text for the logout button */
+    text-decoration: none; /* Remove underline from the link */
+    border-radius: 5px; /* Rounded corners for the logout button */
+    transition: background-color 0.3s ease; /* Transition for hover effect */
+}
+
+.logout-btn:hover {
+    background-color: #555; /* Darker background on hover */
+}

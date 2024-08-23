@@ -1,0 +1,129 @@
+/* homePage.css */
+
+/* General Styles */
+body {
+    font-family: 'Libre Bodoni', serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+}
+
+.logo img {
+    height: 50px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Main Content */
+main {
+    padding: 0; /* Remove padding to allow the slideshow to fill the space */
+    position: relative; /* Positioning for the slideshow */
+}
+
+/* Slideshow Styles */
+.slideshow-container {
+    position: relative; /* Positioning for text overlay */
+    width: 100%;
+    height: auto; /* Adjust height as needed */
+}
+
+.slide {
+    display: none;
+    width: 100%;
+    height: auto;
+}
+
+.slide.active {
+    display: block;
+}
+
+/* Text Overlay Styles */
+.text-overlay {
+    position: absolute;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust position */
+    color: white; /* Text color */
+    font-size: 3rem; /* Font size */
+    font-weight: bold; /* Font weight */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Shadow for better visibility */
+    text-align: center; /* Center text */
+    transition: transform 0.3s ease; /* Smooth transition */
+}
+
+.slide:hover .text-overlay {
+    transform: translate(-50%, -50%) scale(1.1); /* Scale up on hover */
+}
+
+/* Key Features Section */
+.features {
+    display: flex;
+    flex-direction: column; /* Stack features vertically */
+    align-items: center; /* Center align the boxes */
+    margin-top: -5px; /* Adjust margin to overlap slightly with the slideshow */
+    padding: 20px; /* Add padding */
+}
+
+.features h2 {
+    color: #333;
+    margin-bottom: 20px; /* Space between title and features */
+}
+
+.features ul {
+    list-style: none;
+    padding: 0;
+    width: 100%; /* Full width for the boxes */
+    max-width: 600px; /* Limit the maximum width */
+}
+
+.features li {
+    background: #fff;
+    margin: 10px 0;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+}
+
+.features li:hover {
+    transform: translateY(-5px); /* Move up on hover */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}

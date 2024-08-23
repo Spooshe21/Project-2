@@ -1,0 +1,50 @@
+/* Firststyles.css */
+
+/* General Styles */
+body {
+    font-family: 'Libre Bodoni', serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('images/employee.jpg'); /* Replace with your background image */
+    background-size: cover; /* Cover the entire background */
+    background-position: center; /* Center the background image */
+    color: #333; /* Text color */
+    display: flex; /* Use flexbox to center content */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100vh; /* Full viewport height */
+}
+
+.container {
+    text-align: center; /* Center align text in the container */
+    background: rgba(255, 255, 255, 0.8); /* White background with slight transparency */
+    padding: 20px; /* Padding around the container */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+}
+
+h1 {
+    margin-bottom: 20px; /* Space below the header */
+    color: #333; /* Header color */
+}
+
+/* Button Container Styles */
+.button-container {
+    display: flex; /* Use flexbox for button layout */
+    justify-content: center; /* Center buttons */
+    gap: 20px; /* Space between buttons */
+}
+
+.button {
+    display: inline-block; /* Inline block for button styling */
+    padding: 10px 20px; /* Padding for buttons */
+    background-color: #333; /* Dark background for buttons */
+    color: white; /* White text for buttons */
+    text-decoration: none; /* Remove underline from links */
+    border-radius: 5px; /* Rounded corners for buttons */
+    transition: background-color 0.3s ease; /* Transition for hover effect */
+}
+
+.button:hover {
+    background-color: #555; /* Darker background on hover */
+}
