@@ -34,7 +34,7 @@ import java.sql.PreparedStatement;
  * registration, it redirects the user to the login page; otherwise, it forwards the user back to the
  * registration page with an error message.
  */
-@WebServlet("/register")
+
 public class RegisterServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
